@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crud-cd79f": {
+      "hosting": {
+        "practica": [
+          "crud-cd79f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crud-cd79f"
+  }
+}

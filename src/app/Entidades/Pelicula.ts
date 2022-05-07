@@ -1,6 +1,6 @@
 export class Pelicula
 {
-    public id: number = 0;
+    id: string = "";
     nombre: string = "";
     tipo: string = "";
     fechaEstreno: Date = new Date();

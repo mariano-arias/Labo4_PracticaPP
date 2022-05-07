@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Actor } from 'src/app/Entidades/Actor';
 
 @Component({
   selector: 'app-alta-actores',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AltaActoresComponent implements OnInit {
 
+  actor : Actor | undefined;
+  
   constructor() { }
 
   ngOnInit(): void {
