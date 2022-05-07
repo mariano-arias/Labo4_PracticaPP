@@ -7,13 +7,17 @@ import { Pelicula } from './Entidades/Pelicula';
 import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 import { TablaPeliculaComponent } from './pages/tabla-pelicula/tabla-pelicula.component';
 import { DetallePeliculaComponent } from './pages/detalle-pelicula/detalle-pelicula.component';
+import { AltaActoresComponent } from './pages/alta-actores/alta-actores.component';
+import { TablaPaisesComponent } from './pages/tabla-paises/tabla-paises.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BusquedaComponent,
     TablaPeliculaComponent,
-    DetallePeliculaComponent
+    DetallePeliculaComponent,
+    AltaActoresComponent,
+    TablaPaisesComponent
   ],
   imports: [
     BrowserModule,
