@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pelicula } from 'src/app/Entidades/Pelicula';
+import { PeliculaService } from 'src/app/service/pelicula.service';
 
 @Component({
   selector: 'app-tabla-pelicula',
@@ -8,22 +9,20 @@ import { Pelicula } from 'src/app/Entidades/Pelicula';
 })
 export class TablaPeliculaComponent implements OnInit {
 
-  @Input() listadoPeliculas: Pelicula[];
+  listadoPeliculas: Pelicula[] | undefined;
   @Output() seleccionada: EventEmitter<any> = new EventEmitter<any>();
 
   visible: string = "hidden";
   verMas: string = "Ver Mas >>";
 
+  constructor(peliculaService : PeliculaService) {
+    //let data = localStorage.getItem("listadoPeliculas");
 
-  /**
-   *
-   */
-  constructor() {
-    let data = localStorage.getItem("listadoPeliculas");
-
-    this.listadoPeliculas = data != null ? JSON.parse(data) : null;
+    //this.listadoPeliculas = data != null ? JSON.parse(data) : null;
 
     //console.log(this.listadoPeliculas);
+
+    this.listadoPeliculas = peliculaService.listadoPeliculas;
 
   }
 
@@ -32,11 +31,8 @@ export class TablaPeliculaComponent implements OnInit {
 
   VerTabla() {
     this.visible = this.visible == "hidden" ? "visible" : "hidden";
-    if(this.visible != "hidden"){
-      this.verMas = "Ocultar tabla";
-    }else{
-      this.verMas = "Ver Mas";
-    }
+
+    this.verMas = this.visible != "hidden" ? "Ocultar tabla" : "Ver más";
   }
 
   Seleccion(pelicula: Pelicula) {

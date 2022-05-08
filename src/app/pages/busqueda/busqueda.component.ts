@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
+import { Actor } from 'src/app/Entidades/Actor';
 import { Pelicula } from 'src/app/Entidades/Pelicula';
+import { ActorService } from 'src/app/service/actor.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -8,18 +10,34 @@ import { Pelicula } from 'src/app/Entidades/Pelicula';
 })
 export class BusquedaComponent implements OnInit {
 
-  //@Input() listadoPeliculas : Pelicula[] | undefined;
-  //@Output() seleccionada: EventEmitter<any> = new EventEmitter<any>();
- // @Output() pelicula : Pelicula | undefined ;
 
-  @Output() pelicula : Pelicula | undefined ;
+  pelicula : Pelicula | undefined ;
 
-  constructor() { }
+  @Input() actor : Actor | undefined;
+
+  actores!: Actor[];
+
+  //@Input() actores : Actor[] | undefined;
+
+  entidad : string = "none";
+  constructor(actorService : ActorService) { 
+    this.actores = actorService.listadoActores;
+   }
 
   ngOnInit(): void {
   }
 
   Seleccion(e: Pelicula){
     this.pelicula = e;
+  }
+
+  CambiarEntidad(entidad: string){
+    this.entidad= entidad;
+  }
+
+  GetActorNuevo(e : any){
+    this.actores.push(e);
+    console.log(e);
+    
   }
 }

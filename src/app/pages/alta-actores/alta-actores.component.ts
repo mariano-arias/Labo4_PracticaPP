@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Actor } from 'src/app/Entidades/Actor';
 
 @Component({
@@ -8,11 +8,25 @@ import { Actor } from 'src/app/Entidades/Actor';
 })
 export class AltaActoresComponent implements OnInit {
 
-  actor : Actor | undefined;
+ @Output() actorNuevo : EventEmitter<any>= new EventEmitter<any>();
   
+ actor: Actor | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  Nuevo(){
+   // this.actor = new Actor ((Math.random()*10).toString(),  "Bruce", "Willis", "hardtodie", "sarasa@bruce.com",  "avenida de mayo 123", "",  "" )
+  this.actor = new Actor( "Don", "Ramon");
+  //console.log(this.actor);
+  }
+
+  Crear(){
+    this.actorNuevo.emit(this.actor);
+    console.log("emito desde alta actor",this.actor);
+    this.actor = undefined;
   }
 
 }
