@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 import { Pelicula } from 'src/app/Entidades/Pelicula';
 import { PeliculaService } from 'src/app/service/pelicula.service';
 
@@ -9,13 +11,14 @@ import { PeliculaService } from 'src/app/service/pelicula.service';
 })
 export class TablaPeliculaComponent implements OnInit {
 
+  // listadoPeliculas: Observable<any[]>;
   listadoPeliculas: Pelicula[] | undefined;
   @Output() seleccionada: EventEmitter<any> = new EventEmitter<any>();
 
   visible: string = "hidden";
   verMas: string = "Ver Mas >>";
 
-  constructor(peliculaService : PeliculaService) {
+  constructor(peliculaService: PeliculaService) {
     //let data = localStorage.getItem("listadoPeliculas");
 
     //this.listadoPeliculas = data != null ? JSON.parse(data) : null;
@@ -23,6 +26,10 @@ export class TablaPeliculaComponent implements OnInit {
     //console.log(this.listadoPeliculas);
 
     this.listadoPeliculas = peliculaService.listadoPeliculas;
+
+  //  this.listadoPeliculas = firestore.collection('movies').valueChanges();
+  //  console.log(this.listadoPeliculas);
+   
 
   }
 
