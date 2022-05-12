@@ -17,6 +17,8 @@ export class BusquedaComponent implements OnInit {
 
   actores!: Actor[];
 
+  pais!: string;
+
   //@Input() actores : Actor[] | undefined;
 
   entidad : string = "none";
@@ -39,5 +41,9 @@ export class BusquedaComponent implements OnInit {
     this.actores.push(e);
     console.log(e);
     
+  }
+
+  SetPais(p : any){
+    this.pais=p;
   }
 }

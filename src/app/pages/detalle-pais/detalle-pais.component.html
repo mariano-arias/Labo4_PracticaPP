@@ -1,0 +1,18 @@
+<table class="table table-hover">
+    <thead>
+      <!-- <tr>
+        <th>#</th>
+        <th>Bandera</th>
+        <th>Nombre</th>
+      </tr> -->
+    </thead>
+    <tbody>
+      <tr *ngFor="let pais of paises; let i = index"
+          class="animate__animated animate__fadeIn">
+        <td>{{ i + 1 }}</td>
+        <td><img class="small-flag" [src]="pais.flags.png" /></td>
+        <td>{{ pais.name.common }}</td>
+        <td> <button type="button" class="btn btn-info  btn-circle" (click)="SetPais(pais)">Elegir</button></td>
+      </tr>
+    </tbody>
+  </table>

@@ -21,7 +21,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { environment } from '../environments/environment';
-import { ForoComponent } from './pages/foro/foro.component';
+
+import {HttpClientModule} from '@angular/common/http';
+import { DetallePaisComponent } from './pages/detalle-pais/detalle-pais.component';
 
 
 
@@ -39,12 +41,13 @@ import { ForoComponent } from './pages/foro/foro.component';
     EditComponent,
     TablaActoresComponent,
     AdminComponent,
-    ForoComponent
+    DetallePaisComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule

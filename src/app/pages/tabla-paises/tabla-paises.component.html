@@ -1,1 +1,25 @@
-<p>tabla-paises works!</p>
+<hr />
+<h3>Seleccione pais de origen del actor:</h3>
+<h3>Elija un continente para ver los paises</h3>
+<div class="row">
+  <div class="col">
+    <!-- estilos condicionales -->
+    <!-- [class.btn-primary]="region == regionActiva" -->
+    <!-- [ngClass]="{
+                                  'btn-primary': regionActiva==region
+                          }" -->
+    <button
+      *ngFor="let c of continentes"
+      class="btn btn-outline-primary"
+      (click)="ActivarRegion(c)"
+      [class]="getClaseCSS(c)"
+    >
+      {{ c }}
+    </button>
+  </div>
+</div>
+<div *ngIf="paises.length > 0" class="row">
+  <div class="col">
+    <app-detalle-pais (paisSeleccionado)="GetPais($event)" [paises]="paises"></app-detalle-pais>
+  </div>
+</div>
